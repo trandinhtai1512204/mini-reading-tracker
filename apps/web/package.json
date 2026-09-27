@@ -1,0 +1,10 @@
+{
+  "name": "@reading-tracker/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reserved Vue application workspace; implementation starts in Session 04.",
+  "engines": {
+    "node": ">=20"
+  }
+}

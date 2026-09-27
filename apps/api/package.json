@@ -1,0 +1,10 @@
+{
+  "name": "@reading-tracker/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reserved Express API workspace; implementation starts in Session 01.",
+  "engines": {
+    "node": ">=20"
+  }
+}
