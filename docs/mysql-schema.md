@@ -1,6 +1,6 @@
 # Proposed MySQL schema
 
-The migration is deliberately deferred to Session 01. This document is the schema contract for it.
+The executable migration is `apps/api/migrations/202609270001_create_library_books.cjs`; this document remains its readable schema contract.
 
 ```sql
 CREATE TABLE library_books (

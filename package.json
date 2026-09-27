@@ -11,7 +11,16 @@
   },
   "scripts": {
     "check:foundation": "node scripts/verify-foundation.mjs",
-    "lint": "npm run check:foundation",
-    "test": "npm run check:foundation"
+    "dev:api": "npm --workspace @reading-tracker/api run dev",
+    "db:check": "npm --workspace @reading-tracker/api run db:check",
+    "db:migrate": "npm --workspace @reading-tracker/api run db:migrate",
+    "db:seed": "npm --workspace @reading-tracker/api run db:seed",
+    "lint": "eslint .",
+    "test": "npm --workspace @reading-tracker/api run test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0"
   }
 }

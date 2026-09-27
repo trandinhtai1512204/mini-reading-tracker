@@ -41,11 +41,12 @@ This session intentionally contains no Express server, MySQL connection, migrati
 
 | Command | Current result | Introduced in |
 | --- | --- | --- |
-| `npm install` | Installs workspace dependencies once package dependencies are added in the implementation sessions. | Session 01 / 04 |
+| `npm install` | Installs the API foundation and later web dependencies. | Session 01 / 04 |
 | `npm run check:foundation` | Verifies the Session 00 repository contract. | Session 00 |
-| `npm run lint` | Currently aliases the structural check; real source linting is added with the first source workspace. | Session 01 |
-| `npm run test` | Currently aliases the structural check; behavior tests begin with API rules. | Session 01 / 03 |
-| `npm run dev:api` | Planned Express development server command. | Session 01 |
+| `npm run lint` | Runs ESLint over the repository source. | Session 01 |
+| `npm run test` | Runs API HTTP/error-envelope tests. | Session 01 |
+| `npm run dev:api` | Starts Express on `API_PORT` after a valid local `.env` exists. | Session 01 |
+| `npm run db:check`, `npm run db:migrate`, `npm run db:seed` | Check MySQL, apply the Knex migration, and insert non-destructive sample records. | Session 01 |
 | `npm run dev:web` | Planned Vite development server command. | Session 04 |
 
-No command is presented as a running application before its implementation session.
+The Vue development command remains deferred to Session 04. No Open Library or library business endpoint exists in this checkpoint.

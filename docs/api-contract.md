@@ -33,6 +33,21 @@ Every handled API error returns JSON in this shape:
 | `PATCH` | `/library-books/:id` | 03 | Update status, current page, rating and/or note using backend rules. |
 | `DELETE` | `/library-books/:id` | 03 | Remove one saved book. |
 
+## Health response
+
+`GET /api/health` is implemented in Session 01. It runs a lightweight database query and only reports ready when MySQL responds.
+
+```json
+{
+  "data": {
+    "status": "ok",
+    "database": "connected"
+  }
+}
+```
+
+If the database is unavailable, it returns HTTP `503` and the standard `DATABASE_UNAVAILABLE` error envelope without leaking connection details.
+
 ## DTO boundary
 
 The search/detail service exposes a stable object rather than raw Open Library JSON:

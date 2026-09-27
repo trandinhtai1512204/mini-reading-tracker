@@ -4,7 +4,7 @@ An incremental implementation of the ICODE Fullstack test: search Open Library t
 
 ## Current checkpoint
 
-**Session 00 — project foundation and technical contract.** The repository now defines workspaces, safe configuration conventions, API/schema contracts and requirement traceability. It intentionally has no running product feature, database connection, Open Library call or Vue screen yet.
+**Session 01 — API/database foundation.** Express exposes a database-backed health check, while Knex owns the MySQL migration and idempotent sample seed. Open Library, personal-library endpoints and the Vue UI are intentionally deferred.
 
 ## Stack and structure
 
@@ -17,15 +17,18 @@ See [architecture](docs/architecture.md), [API contract](docs/api-contract.md), 
 
 ## Local setup at this checkpoint
 
-Prerequisites: Node.js 20+ and npm. MySQL is not needed until Session 01.
+Prerequisites: Node.js 20+, npm and a MySQL 8+ database.
 
 ```bash
 npm install
 cp .env.example .env
-npm run check:foundation
+npm run db:check
+npm run db:migrate
+npm run db:seed
+npm run dev:api
 ```
 
-`.env.example` contains placeholders only. Keep real local credentials in `.env`, which is ignored by Git. The API and web development-server commands will be added only in their assigned sessions; do not treat this checkpoint as a working app.
+In another terminal, verify the API with `curl http://localhost:3001/api/health`. `.env.example` contains placeholders only; keep real credentials in ignored `.env`. The Vue development server arrives in Session 04.
 
 ## Architecture rules already agreed
 
@@ -40,7 +43,8 @@ npm run check:foundation
 | Item | Status |
 | --- | --- |
 | Repository foundation and contracts | Complete in Session 00 |
-| API/database, Open Library proxy and Vue features | Planned in Sessions 01–06 |
+| API health, migration and sample seed | Complete in Session 01; requires a MySQL instance to run locally |
+| Open Library proxy and Vue features | Planned in Sessions 02–06 |
 | Quality gate | Planned in Session 07 |
 | Deployment handoff and public HTTPS smoke test | Planned in Sessions 08–09 |
 

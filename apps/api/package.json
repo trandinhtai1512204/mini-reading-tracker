@@ -3,8 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Reserved Express API workspace; implementation starts in Session 01.",
+  "description": "Express API and MySQL foundation for Mini Reading Tracker.",
   "engines": {
     "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.mjs",
+    "db:check": "node src/scripts/check-db.mjs",
+    "db:migrate": "knex migrate:latest --knexfile knexfile.cjs",
+    "db:seed": "knex seed:run --knexfile knexfile.cjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "mysql2": "^3.24.4",
+    "zod": "^3.25.76"
   }
 }
